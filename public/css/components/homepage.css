@@ -1,15 +1,56 @@
 .homepage {
-  margin: 0 auto;
-  max-width: var(--max-content-width);
-  padding: 0 var(--page-horizontal-padding);
+    margin: 0 auto;
+    max-width: var(--max-content-width);
+    padding: 0 var(--page-horizontal-padding);
 }
 .homepage__all {
-  display: flex;
-  flex-wrap: wrap;
+    display: flex;
+    flex-wrap: wrap;
 }
 .homepage__all--user {
-  margin: 0 4px;
+    margin: 0 4px;
+    position: relative;
+    overflow: hidden;
 }
 .homepage__all--user img {
-  width: 120px;
+    width: 120px;
+}
+
+.home {
+    text-decoration: none;
+    color: #fff;
+    font-size: 36px;
+    margin-top: 3px;
+    font-family: "Teko", sans-serif;
+    line-height: 1em;
+}
+
+.homepage__all--user .user-tag {
+    background: rgba(255, 255, 255, 0.6);
+    color: #000;
+    position: absolute;
+    bottom: 9px;
+    left: 2px;
+    text-align: center;
+    width: calc(100% - 4px);
+    font-size: 12px;
+}
+
+.ribbon {
+    background: var(--primary-color);
+    position: absolute;
+    text-align: center;
+    transform: rotate(45deg);
+    right: -30px;
+    top: 10px;
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3px 0;
+}
+.ribbon span {
+    color: #fff;
+    font-family: Teko;
+    font-size: 11px;
 }
