@@ -11,6 +11,10 @@ const usersData = (data) => {
     return users.find((user) => Object.values(user).includes(data));
 };
 
+const friendsData = (friendsList) => {
+    return users.filter((user) => friendsList.includes(user._id));
+};
+
 // declare the 404 function
 const handleFourOhFour = (req, res) => {
     res.status(404).send("I couldn't find what you're looking for.");
@@ -26,6 +30,7 @@ const handleProfilePage = (req, res) => {
 
     res.status(200).render("pages/profile", {
         user: user,
+        friends: friendsData(user.friends),
     });
 };
 
