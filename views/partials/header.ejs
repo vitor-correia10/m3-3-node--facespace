@@ -10,4 +10,9 @@
       <h1>
         <a class="home" href="/">Facespace</a>
       </h1>
+      <% if (currentUser.name) { %>
+        <a class="top-button" href="/users/<%= currentUser._id %>"> Hello <%= currentUser.name %>! </a>
+      <% } else { %>
+        <a href="/signin" class="top-button">Sign in</a>
+      <% } %>
   </header>

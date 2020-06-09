@@ -21,6 +21,8 @@ const handleFourOhFour = (req, res) => {
 };
 
 const handleHomepage = (req, res) => {
+    //200 OK
+    //201 Created -> e.g.:Create a new page
     res.status(200).render("pages/homepage", { users, currentUser });
 };
 
@@ -28,14 +30,25 @@ const handleProfilePage = (req, res) => {
     const _id = req.params._id;
     const user = usersData(_id);
 
-    res.status(200).render("pages/profile", {
-        user: user,
-        friends: friendsData(user.friends),
-    });
+    if (user) {
+        res.status(200).render("pages/profile", {
+            user: user,
+            currentUser: currentUser,
+            friends: friendsData(user.friends),
+        });
+    } else {
+        res.status(404).redirect("/");
+    }
 };
 
 const handleSignin = (req, res) => {
-    res.status(200).render("pages/signin");
+    if (currentUser.name) {
+        //301 Moved Permanently
+        //307 Temporary Redirect
+        res.status(301).redirect("/");
+    } else {
+        res.status(200).render("pages/signin", { currentUser });
+    }
 };
 
 const handleName = (req, res) => {

@@ -16,6 +16,11 @@
     width: 120px;
 }
 
+.homepage__all--user:hover .user-tag {
+    text-decoration: underline;
+    color: blue;
+}
+
 .home {
     text-decoration: none;
     color: #fff;
